@@ -73,9 +73,6 @@ export function ConsumerStudyResultsBanner() {
                 data-ai-hint={currentImage.dataAiHint}
                 priority
               />
-               <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black/50 text-white px-4 py-2 rounded-md text-sm font-semibold">
-                {currentImage.label}
-              </div>
             </div>
             <Button
               variant="outline"
