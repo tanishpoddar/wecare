@@ -1,6 +1,6 @@
 'use client';
 
-import { Leaf, Zap, ShieldCheck, Droplets, Atom, ShieldPlus } from 'lucide-react';
+import { Leaf, Zap, ShieldPlus, ShieldCheck, Droplets } from 'lucide-react'; // Atom removed
 import { IngredientCard } from '@/components/common/ingredient-card';
 import { useFadeIn } from '@/hooks/use-fade-in';
 
@@ -10,7 +10,6 @@ const ingredients = [
   { Icon: ShieldPlus, name: 'Ashwagandha & Zinc', description: 'Fortify & strengthen hair' },
   { Icon: ShieldCheck, name: 'Saw Palmetto & Lycopodium', description: 'Protect & prevent hair loss' },
   { Icon: Droplets, name: 'Glycerin & Arnica', description: 'Hydrate & soothe the scalp' },
-  { Icon: Atom, name: 'Peptide Complex', description: 'Improve overall hair structure' },
 ];
 
 export function IngredientsBanner() {

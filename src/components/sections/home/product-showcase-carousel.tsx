@@ -40,7 +40,7 @@ export function ProductShowcaseCarousel() {
         <div className="relative">
           <div ref={scrollContainerRef} className="flex overflow-x-auto space-x-6 pb-6 scrollbar-hide">
             {products.map((product) => (
-              <div key={product.id} className="flex-shrink-0 w-[280px] md:w-[320px]">
+              <div key={product.id} className="flex-shrink-0 w-[280px] md:w-[300px] lg:w-[230px]"> {/* Adjusted widths for responsiveness */}
                 <Card className="h-full flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <CardHeader className="p-0">
                     <Image
@@ -48,7 +48,7 @@ export function ProductShowcaseCarousel() {
                       alt={product.name}
                       width={400}
                       height={500}
-                      className="w-full h-64 object-cover"
+                      className="w-full h-64 object-cover" // Standardized image height
                       data-ai-hint={product.dataAiHint}
                     />
                   </CardHeader>

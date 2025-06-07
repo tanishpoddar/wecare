@@ -6,21 +6,20 @@ import { useFadeIn } from "@/hooks/use-fade-in";
 
 export function HeroVideoSection() {
   const fadeIn = useFadeIn<HTMLDivElement>();
-  // Placeholder for video URL. In a real app, this would come from a CMS or config.
-  // Using a short, looping, royalty-free nature video as a placeholder.
-  const videoUrl = "https://videos.pexels.com/video-files/3254005/3254005-hd_1280_720_25fps.mp4";
+  // Using a placeholder video that's portrait. Consider replacing with actual 9:16 content.
+  const videoUrl = "https://videos.pexels.com/video-files/8131991/8131991-sd_540_960_25fps.mp4";
 
 
   return (
-    <section className="relative h-[70vh] md:h-[80vh] w-full overflow-hidden">
+    <section className="relative h-screen w-full overflow-hidden"> {/* Adjusted height for 9:16 feel */}
       <video
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0" // object-cover will handle aspect ratio
         src={videoUrl}
         autoPlay
         loop
         muted
         playsInline
-        data-ai-hint="hair model diversity"
+        data-ai-hint="portrait models hair fashion" // Updated hint
       />
       <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-10"></div>
       <div ref={fadeIn.ref} className={`relative z-20 container mx-auto px-4 h-full flex flex-col items-center justify-center text-center text-white ${fadeIn.className}`}>
