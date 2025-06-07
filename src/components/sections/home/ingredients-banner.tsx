@@ -1,6 +1,7 @@
+
 'use client';
 
-import { Leaf, Zap, ShieldPlus, ShieldCheck, Droplets } from 'lucide-react'; // Atom removed
+import { Leaf, Zap, ShieldPlus, ShieldCheck, Droplets } from 'lucide-react';
 import { IngredientCard } from '@/components/common/ingredient-card';
 import { useFadeIn } from '@/hooks/use-fade-in';
 
@@ -17,7 +18,7 @@ export function IngredientsBanner() {
   return (
     <section ref={fadeIn.ref} className={`py-12 md:py-20 bg-background ${fadeIn.className}`}>
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 font-headline">Powered by Nature & Science</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 font-headline text-primary">Powered by Nature & Science</h2>
         <p className="text-center text-muted-foreground mb-10 max-w-xl mx-auto">
           Our unique blend of potent, carefully selected ingredients works synergistically to deliver transformative results.
         </p>
@@ -35,3 +36,4 @@ export function IngredientsBanner() {
     </section>
   );
 }
+
