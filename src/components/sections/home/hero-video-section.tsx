@@ -1,42 +1,53 @@
+
 'use client';
 
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
 import { useFadeIn } from "@/hooks/use-fade-in";
+import React from 'react';
+
+// Sample portrait video URLs - replace with your actual 9:16 videos
+const videoSources = [
+  "https://videos.pexels.com/video-files/4689206/4689206-sd_540_960_30fps.mp4", // Woman applying cream
+  "https://videos.pexels.com/video-files/8071326/8071326-sd_540_960_25fps.mp4", // Skincare routine
+  "https://videos.pexels.com/video-files/7579909/7579909-sd_540_960_25fps.mp4", // Woman with flowing hair
+  "https://videos.pexels.com/video-files/5719827/5719827-sd_540_960_25fps.mp4", // Applying makeup
+  "https://videos.pexels.com/video-files/8131991/8131991-sd_540_960_25fps.mp4", // Hair product application
+];
+
+const videoDataAiHints = [
+  "skincare application model",
+  "face care routine",
+  "woman beautiful hair",
+  "makeup tutorial beauty",
+  "hair serum model",
+]
 
 export function HeroVideoSection() {
   const fadeIn = useFadeIn<HTMLDivElement>();
-  // Using a placeholder video that's portrait. Consider replacing with actual 9:16 content.
-  const videoUrl = "https://videos.pexels.com/video-files/8131991/8131991-sd_540_960_25fps.mp4";
-
 
   return (
-    <section className="relative h-screen w-full overflow-hidden"> {/* Adjusted height for 9:16 feel */}
-      <video
-        className="absolute top-0 left-0 w-full h-full object-cover z-0" // object-cover will handle aspect ratio
-        src={videoUrl}
-        autoPlay
-        loop
-        muted
-        playsInline
-        data-ai-hint="portrait models hair fashion" // Updated hint
-      />
-      <div className="absolute top-0 left-0 w-full h-full bg-black/40 z-10"></div>
-      <div ref={fadeIn.ref} className={`relative z-20 container mx-auto px-4 h-full flex flex-col items-center justify-center text-center text-white ${fadeIn.className}`}>
-        <h1 className="text-4xl md:text-6xl font-bold mb-6 font-headline">
-          Experience Lustrous, Healthy Hair
-        </h1>
-        <p className="text-lg md:text-xl mb-8 max-w-2xl">
-          Our revolutionary serum, backed by science and nature, revitalizes your hair from root to tip.
-        </p>
-        <div className="space-x-4">
-          <Button size="lg" asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
-            <Link href="/shop">Shop Serum</Link>
-          </Button>
-          <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-            <Link href="/quiz">Take Hair Quiz</Link>
-          </Button>
-        </div>
+    <section ref={fadeIn.ref} className={`py-8 md:py-12 bg-background overflow-hidden ${fadeIn.className}`}>
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 md:mb-10 font-headline text-primary">
+          Real People, Real Routines
+        </h2>
+      </div>
+      <div className="flex overflow-x-auto space-x-3 md:space-x-4 px-4 pb-4 scrollbar-hide">
+        {videoSources.map((src, index) => (
+          <div
+            key={index}
+            className="flex-shrink-0 w-[calc(50vw-1.5rem)] sm:w-64 md:w-72 lg:w-80 aspect-[9/16] rounded-lg overflow-hidden shadow-lg"
+          >
+            <video
+              className="w-full h-full object-cover"
+              src={src}
+              autoPlay
+              loop
+              muted
+              playsInline
+              data-ai-hint={videoDataAiHints[index % videoDataAiHints.length]}
+            />
+          </div>
+        ))}
       </div>
     </section>
   );
