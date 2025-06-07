@@ -30,7 +30,7 @@ export function HeroVideoSection() {
         {videoSources.map((src, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-[calc(45vw-1rem)] sm:w-48 md:w-56 lg:w-64 aspect-[9/16] rounded-lg overflow-hidden shadow-lg"
+            className="flex-shrink-0 w-[calc(35vw-0.5rem)] sm:w-36 md:w-44 lg:w-52 aspect-[9/16] rounded-lg overflow-hidden shadow-lg"
           >
             <video
               className="w-full h-full object-cover"
@@ -47,4 +47,3 @@ export function HeroVideoSection() {
     </section>
   );
 }
-
