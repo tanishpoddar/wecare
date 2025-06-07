@@ -6,11 +6,46 @@ import { IngredientCard } from '@/components/common/ingredient-card';
 import { useFadeIn } from '@/hooks/use-fade-in';
 
 const ingredients = [
-  { Icon: Leaf, name: 'Biotin & Rosemary', description: 'Support & revitalize hair health' },
-  { Icon: Zap, name: 'Redensyl & Baicapil', description: 'Stimulate & reactivate growth' },
-  { Icon: ShieldPlus, name: 'Ashwagandha & Zinc', description: 'Fortify & strengthen hair' },
-  { Icon: ShieldCheck, name: 'Saw Palmetto & Lycopodium', description: 'Protect & prevent hair loss' },
-  { Icon: Droplets, name: 'Glycerin & Arnica', description: 'Hydrate & soothe the scalp' },
+  {
+    Icon: Leaf,
+    name: 'Biotin & Rosemary',
+    description: 'Support & revitalize hair health',
+    imageUrl: 'https://placehold.co/400x250.png',
+    imageAlt: 'Biotin and Rosemary illustration',
+    imageAiHint: 'herbs leaves',
+  },
+  {
+    Icon: Zap,
+    name: 'Redensyl & Baicapil',
+    description: 'Stimulate & reactivate growth',
+    imageUrl: 'https://placehold.co/400x250.png',
+    imageAlt: 'Redensyl and Baicapil molecular structure',
+    imageAiHint: 'science molecules',
+  },
+  {
+    Icon: ShieldPlus,
+    name: 'Ashwagandha & Zinc',
+    description: 'Fortify & strengthen hair',
+    imageUrl: 'https://placehold.co/400x250.png',
+    imageAlt: 'Ashwagandha root and Zinc mineral',
+    imageAiHint: 'root minerals',
+  },
+  {
+    Icon: ShieldCheck,
+    name: 'Saw Palmetto & Lycopodium',
+    description: 'Protect & prevent hair loss',
+    imageUrl: 'https://placehold.co/400x250.png',
+    imageAlt: 'Saw Palmetto berries and Lycopodium plant',
+    imageAiHint: 'plant extract',
+  },
+  {
+    Icon: Droplets,
+    name: 'Glycerin & Arnica',
+    description: 'Hydrate & soothe the scalp',
+    imageUrl: 'https://placehold.co/400x250.png',
+    imageAlt: 'Glycerin droplets and Arnica flower',
+    imageAiHint: 'flower droplets',
+  },
 ];
 
 export function IngredientsBanner() {
@@ -22,13 +57,16 @@ export function IngredientsBanner() {
         <p className="text-center text-muted-foreground mb-10 max-w-xl mx-auto">
           Our unique blend of potent, carefully selected ingredients works synergistically to deliver transformative results.
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {ingredients.map((ingredient) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          {ingredients.map((ingredient, index) => (
             <IngredientCard
               key={ingredient.name}
               Icon={ingredient.Icon}
               name={ingredient.name}
               description={ingredient.description}
+              imageUrl={ingredient.imageUrl}
+              imageAlt={ingredient.imageAlt}
+              imageAiHint={ingredient.imageAiHint}
             />
           ))}
         </div>
@@ -36,4 +74,3 @@ export function IngredientsBanner() {
     </section>
   );
 }
-
