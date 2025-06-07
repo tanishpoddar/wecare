@@ -2,13 +2,13 @@
 'use client';
 
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // CardHeader might not be needed if media fills card. CardTitle for textBlock.
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, ShieldCheck, Sparkles, Leaf, ListChecks } from 'lucide-react';
 import React, { useRef, type ElementType } from 'react';
 import { useFadeIn } from '@/hooks/use-fade-in';
 
-interface CarouselItem {
+interface CarouselItemDef {
   id: string;
   type: 'image' | 'video' | 'textBlock';
   content: {
@@ -21,12 +21,12 @@ interface CarouselItem {
   };
 }
 
-const carouselItems: CarouselItem[] = [
+const baseCarouselItems: CarouselItemDef[] = [
   {
     id: 'serum-image',
     type: 'image',
     content: {
-      src: 'https://placehold.co/400x500.png', // Aspect ratio of source image might differ from card, object-cover handles it.
+      src: 'https://placehold.co/400x500.png',
       alt: 'Lustrous Locks Hair Serum Bottle',
       dataAiHint: 'serum bottle beauty',
     },
@@ -85,6 +85,9 @@ const carouselItems: CarouselItem[] = [
   },
 ];
 
+// Repeat items to simulate infinite scroll
+const carouselItemsForDisplay = [...baseCarouselItems, ...baseCarouselItems, ...baseCarouselItems];
+
 
 export function ProductShowcaseCarousel() {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
@@ -105,8 +108,8 @@ export function ProductShowcaseCarousel() {
       <div className="container mx-auto px-4">
         <div className="relative">
           <div ref={scrollContainerRef} className="flex overflow-x-auto space-x-6 pb-6 scrollbar-hide">
-            {carouselItems.map((item) => (
-              <div key={item.id} className="flex-shrink-0 w-[300px] h-[450px]">
+            {carouselItemsForDisplay.map((item, index) => (
+              <div key={`${item.id}-${index}`} className="flex-shrink-0 w-[300px] h-[450px]">
                 <Card className="w-full h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-background">
                   {item.type === 'image' && item.content.src && (
                     <div className="relative w-full h-full">
@@ -141,9 +144,9 @@ export function ProductShowcaseCarousel() {
                       )}
                       {Array.isArray(item.content.text) && (
                         <ul className="space-y-1 text-sm text-muted-foreground list-none text-left">
-                          {item.content.text.map((line, index) => (
-                            <li key={index} className="flex items-start">
-                              <span className="text-primary mr-2 text-lg">&#8226;</span> {/* Custom bullet */}
+                          {item.content.text.map((line, idx) => (
+                            <li key={idx} className="flex items-start">
+                              <span className="text-primary mr-2 text-lg">&#8226;</span>
                               {line}
                             </li>
                           ))}
