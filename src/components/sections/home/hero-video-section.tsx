@@ -26,11 +26,7 @@ export function HeroVideoSection() {
 
   return (
     <section ref={fadeIn.ref} className={`py-8 md:py-12 bg-background overflow-hidden ${fadeIn.className}`}>
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 md:mb-10 font-headline text-primary">
-          Real People, Real Routines
-        </h2>
-      </div>
+      {/* Heading removed */}
       <div className="flex overflow-x-auto space-x-3 md:space-x-4 px-4 pb-4 scrollbar-hide">
         {videoSources.map((src, index) => (
           <div

@@ -3,11 +3,14 @@ import { ProductShowcaseCarousel } from '@/components/sections/home/product-show
 import { ConsumerStudyResultsBanner } from '@/components/sections/home/consumer-study-results-banner';
 import { RollingBenefitsTiles } from '@/components/sections/home/rolling-benefits-tiles';
 import { IngredientsBanner } from '@/components/sections/home/ingredients-banner';
+import { Separator } from '@/components/ui/separator';
 
 export default function HomePage() {
   return (
     <>
+      <Separator className="my-8 md:my-12 opacity-50" />
       <HeroVideoSection />
+      <Separator className="my-8 md:my-12 opacity-50" />
       <ProductShowcaseCarousel />
       <ConsumerStudyResultsBanner />
       <RollingBenefitsTiles />
