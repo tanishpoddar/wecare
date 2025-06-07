@@ -2,7 +2,7 @@
 'use client';
 
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'; // CardHeader might not be needed if media fills card. CardTitle for textBlock.
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, ShieldCheck, Sparkles, Leaf, ListChecks } from 'lucide-react';
 import React, { useRef, type ElementType } from 'react';
@@ -26,7 +26,7 @@ const carouselItems: CarouselItem[] = [
     id: 'serum-image',
     type: 'image',
     content: {
-      src: 'https://placehold.co/400x500.png',
+      src: 'https://placehold.co/400x500.png', // Aspect ratio of source image might differ from card, object-cover handles it.
       alt: 'Lustrous Locks Hair Serum Bottle',
       dataAiHint: 'serum bottle beauty',
     },
@@ -103,14 +103,13 @@ export function ProductShowcaseCarousel() {
   return (
     <section ref={fadeIn.ref} className={`py-12 md:py-16 bg-secondary ${fadeIn.className}`}>
       <div className="container mx-auto px-4">
-        {/* Title and description removed as per request */}
         <div className="relative">
           <div ref={scrollContainerRef} className="flex overflow-x-auto space-x-6 pb-6 scrollbar-hide">
             {carouselItems.map((item) => (
-              <div key={item.id} className="flex-shrink-0 w-[300px]">
-                <Card className="h-[450px] flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-background">
+              <div key={item.id} className="flex-shrink-0 w-[300px] h-[450px]">
+                <Card className="w-full h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-background">
                   {item.type === 'image' && item.content.src && (
-                    <CardHeader className="p-0 relative w-full h-2/3">
+                    <div className="relative w-full h-full">
                       <Image
                         src={item.content.src}
                         alt={item.content.alt || 'Product image'}
@@ -118,10 +117,10 @@ export function ProductShowcaseCarousel() {
                         className="object-cover"
                         data-ai-hint={item.content.dataAiHint}
                       />
-                    </CardHeader>
+                    </div>
                   )}
                   {item.type === 'video' && item.content.src && (
-                    <div className="relative w-full h-2/3 bg-black">
+                    <div className="relative w-full h-full bg-black">
                       <video
                         className="w-full h-full object-cover"
                         src={item.content.src}
@@ -133,15 +132,6 @@ export function ProductShowcaseCarousel() {
                       />
                     </div>
                   )}
-                  
-                  {(item.type === 'image' || item.type === 'video') && (item.content.title || item.content.text) && (
-                     <CardContent className="p-4 flex flex-col justify-center items-center text-center flex-grow">
-                        {item.content.Icon && <item.content.Icon className="w-10 h-10 text-primary mb-2" />}
-                        {item.content.title && <CardTitle className="text-lg font-headline text-primary mb-1">{item.content.title}</CardTitle>}
-                        {typeof item.content.text === 'string' && <p className="text-sm text-muted-foreground">{item.content.text}</p>}
-                     </CardContent>
-                  )}
-
                   {item.type === 'textBlock' && (
                     <CardContent className="p-6 flex flex-col justify-center items-center text-center h-full">
                       {item.content.Icon && <item.content.Icon className="w-12 h-12 text-primary mb-4" />}
@@ -168,7 +158,7 @@ export function ProductShowcaseCarousel() {
           <Button
             variant="outline"
             size="icon"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background hidden md:flex"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background flex"
             onClick={() => scroll('left')}
             aria-label="Scroll left"
           >
@@ -177,7 +167,7 @@ export function ProductShowcaseCarousel() {
           <Button
             variant="outline"
             size="icon"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background hidden md:flex"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background flex"
             onClick={() => scroll('right')}
             aria-label="Scroll right"
           >
