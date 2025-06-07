@@ -1,8 +1,10 @@
 
 'use client';
 
+import React, { useRef } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { useFadeIn } from "@/hooks/use-fade-in";
-import React from 'react';
 
 // Base video sources and hints
 const baseVideoSources = [
@@ -21,35 +23,69 @@ const baseVideoDataAiHints = [
   "hair serum model",
 ];
 
-const REPETITIONS = 6; // Repeat content to simulate endless scroll
-
-const displayVideoSources = Array(REPETITIONS).fill(null).flatMap(() => baseVideoSources);
-// const displayVideoDataAiHints = Array(REPETITIONS).fill(null).flatMap(() => baseVideoDataAiHints); // Not strictly needed if using modulo for hints
+const CARD_WIDTH_CLASSES = "w-64 sm:w-72 md:w-80";
+const SCROLL_SPACING_CLASSES = "space-x-4 md:space-x-6";
+const SCROLL_AMOUNT_PX = 320 + 24; // Approximate width of md card (320px) + md gap (24px)
 
 export function HeroVideoSection() {
   const fadeIn = useFadeIn<HTMLDivElement>();
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'left' ? -SCROLL_AMOUNT_PX : SCROLL_AMOUNT_PX,
+        behavior: 'smooth',
+      });
+    }
+  };
 
   return (
-    <section ref={fadeIn.ref} className={`py-8 md:py-12 bg-background overflow-hidden ${fadeIn.className}`}>
-      <div className="flex overflow-x-auto space-x-2 md:space-x-3 px-4 pb-4 scrollbar-hide">
-        {displayVideoSources.map((src, index) => (
-          <div
-            key={`hero-video-${index}`} // Unique key for each repeated item
-            className="flex-shrink-0 w-[calc(20vw-0.25rem)] sm:w-20 md:w-24 lg:w-28 aspect-[9/16] rounded-lg overflow-hidden shadow-lg"
-          >
-            <video
-              className="w-full h-full object-cover"
-              src={src}
-              autoPlay
-              loop
-              muted
-              playsInline
-              data-ai-hint={baseVideoDataAiHints[index % baseVideoDataAiHints.length]}
-            />
-          </div>
-        ))}
+    <section ref={fadeIn.ref} className={`py-8 md:py-12 bg-background ${fadeIn.className}`}>
+      <div className="container mx-auto px-4 relative">
+        
+        <Button
+          variant="outline"
+          size="icon"
+          className="absolute left-0 sm:left-2 md:left-0 top-1/2 -translate-y-1/2 z-20 bg-background/80 hover:bg-background flex shadow-md"
+          onClick={() => scroll('left')}
+          aria-label="Scroll left"
+        >
+          <ChevronLeft className="h-6 w-6" />
+        </Button>
+        
+        <div 
+          ref={scrollContainerRef}
+          className={`flex overflow-x-auto ${SCROLL_SPACING_CLASSES} pb-4 scroll-smooth scrollbar-hide`}
+        >
+          {baseVideoSources.map((src, index) => (
+            <div
+              key={`hero-video-${src}-${index}`} 
+              className={`flex-shrink-0 ${CARD_WIDTH_CLASSES} aspect-[9/16] rounded-lg overflow-hidden shadow-lg`}
+            >
+              <video
+                className="w-full h-full object-cover"
+                src={src}
+                autoPlay
+                loop
+                muted
+                playsInline
+                data-ai-hint={baseVideoDataAiHints[index % baseVideoDataAiHints.length]}
+              />
+            </div>
+          ))}
+        </div>
+
+        <Button
+          variant="outline"
+          size="icon"
+          className="absolute right-0 sm:right-2 md:right-0 top-1/2 -translate-y-1/2 z-20 bg-background/80 hover:bg-background flex shadow-md"
+          onClick={() => scroll('right')}
+          aria-label="Scroll right"
+        >
+          <ChevronRight className="h-6 w-6" />
+        </Button>
       </div>
     </section>
   );
 }
-
