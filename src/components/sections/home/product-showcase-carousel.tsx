@@ -91,7 +91,6 @@ const CARD_GAP = 24; // Tailwind space-x-6 is 1.5rem = 24px
 const ITEMS_TO_SCROLL_BY_BUTTON = 1; 
 const REPETITIONS = 6; // Increase repetitions for a more "endless" feel
 
-// Repeat items to simulate infinite scroll
 const carouselItemsForDisplay = Array(REPETITIONS)
   .fill(null)
   .flatMap(() => baseCarouselItems);
@@ -114,13 +113,14 @@ export function ProductShowcaseCarousel() {
 
   const handleDotClick = (dotIndex: number) => {
     if (scrollContainerRef.current) {
-      // Scroll to the first occurrence of this item's original index
+      // Calculate the scroll position to bring the Nth unique item (first occurrence) to the start.
+      // The `px-4 sm:px-6 lg:px-8` on scrollContainerRef means we don't need to account for it here for item alignment,
+      // as scrollLeft is relative to the scroll container's content.
       const targetScrollLeft = dotIndex * (CARD_WIDTH + CARD_GAP);
       scrollContainerRef.current.scrollTo({
         left: targetScrollLeft,
         behavior: 'smooth',
       });
-      // setActiveDotIndex will be updated by the onScroll handler
     }
   };
 
@@ -133,10 +133,10 @@ export function ProductShowcaseCarousel() {
     const handleScroll = () => {
       clearTimeout(scrollTimeoutId);
       scrollTimeoutId = setTimeout(() => {
+        if (!container) return;
         const scrollLeft = container.scrollLeft;
         const itemWidthWithGap = CARD_WIDTH + CARD_GAP;
         
-        // Calculate current index based on what item is at the start of the viewport
         const currentIndexInRepeatedList = Math.round(scrollLeft / itemWidthWithGap);
         
         const newActiveDotIndex = currentIndexInRepeatedList % baseCarouselItems.length;
@@ -144,28 +144,33 @@ export function ProductShowcaseCarousel() {
         if (activeDotIndex !== newActiveDotIndex) {
           setActiveDotIndex(newActiveDotIndex);
         }
-      }, 150); // Debounce scroll event slightly
+      }, 150); 
     };
 
     container.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Initial check in case of pre-existing scroll position
+    handleScroll(); 
 
     return () => {
-      container.removeEventListener('scroll', handleScroll);
+      if (container) {
+        container.removeEventListener('scroll', handleScroll);
+      }
       clearTimeout(scrollTimeoutId);
     };
-  }, [activeDotIndex]); // Re-attach if activeDotIndex changes from outside, though mostly driven by scroll
+  }, [activeDotIndex]); 
 
   return (
     <section ref={fadeIn.ref} className={`py-12 md:py-16 bg-secondary ${fadeIn.className}`}>
-      <div className="container mx-auto px-4">
+      <div className="w-full"> {/* Changed from container mx-auto px-4 to w-full */}
         <div className="relative">
-          <div ref={scrollContainerRef} className="flex overflow-x-auto space-x-6 pb-6 scrollbar-hide">
+          <div 
+            ref={scrollContainerRef} 
+            className="flex overflow-x-auto space-x-6 pb-6 scrollbar-hide px-4 sm:px-6 lg:px-8" // Added px for start/end padding
+          >
             {carouselItemsForDisplay.map((item, index) => (
-              <div key={`${item.id}-rep-${index}`} className="flex-shrink-0 w-[300px] h-[450px]"> {/* Unique key */}
+              <div key={`${item.id}-rep-${index}`} className="flex-shrink-0 w-[300px] h-[450px]">
                 <Card className="w-full h-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 bg-background">
                   {(item.type === 'image' || item.type === 'video') && item.content.src && (
-                    <div className="relative w-full h-full bg-black">
+                    <div className="relative w-full h-full">
                       {item.type === 'image' ? (
                         <Image
                           src={item.content.src}
@@ -173,7 +178,7 @@ export function ProductShowcaseCarousel() {
                           fill
                           className="object-cover"
                           data-ai-hint={item.content.dataAiHint}
-                          priority={index < 3} // Prioritize loading for initial items
+                          priority={index < 3} 
                         />
                       ) : (
                         <video
@@ -230,8 +235,10 @@ export function ProductShowcaseCarousel() {
             <ChevronRight className="h-6 w-6" />
           </Button>
         </div>
-
-        {/* Pagination Dots */}
+      </div>
+      
+      {/* Pagination Dots - Wrapped in a container to keep them centered */}
+      <div className="container mx-auto px-4">
         <div className="flex justify-center space-x-2 mt-8">
           {baseCarouselItems.map((_, index) => (
             <button
@@ -245,7 +252,6 @@ export function ProductShowcaseCarousel() {
             />
           ))}
         </div>
-
       </div>
     </section>
   );
