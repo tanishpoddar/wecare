@@ -23,8 +23,8 @@ const baseVideoDataAiHints = [
   "hair serum model",
 ];
 
-const CARD_WIDTH_CLASSES = "w-64 sm:w-72 md:w-80";
-const SCROLL_SPACING_CLASSES = "space-x-4 md:space-x-6";
+const CARD_WIDTH_CLASSES = "w-64 sm:w-72 md:w-80"; // Kept the larger card sizes
+const SCROLL_SPACING_CLASSES = "space-x-4 md:space-x-6"; // Kept the larger spacing
 const SCROLL_AMOUNT_PX = 320 + 24; // Approximate width of md card (320px) + md gap (24px)
 
 export function HeroVideoSection() {
@@ -42,12 +42,12 @@ export function HeroVideoSection() {
 
   return (
     <section ref={fadeIn.ref} className={`py-8 md:py-12 bg-background ${fadeIn.className}`}>
-      <div className="container mx-auto px-4 relative">
+      <div className="relative"> {/* Removed container mx-auto px-4 */}
         
         <Button
           variant="outline"
           size="icon"
-          className="absolute left-0 sm:left-2 md:left-0 top-1/2 -translate-y-1/2 z-20 bg-background/80 hover:bg-background flex shadow-md"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-background/80 hover:bg-background flex shadow-md md:left-4" // Adjusted for edge placement
           onClick={() => scroll('left')}
           aria-label="Scroll left"
         >
@@ -56,7 +56,7 @@ export function HeroVideoSection() {
         
         <div 
           ref={scrollContainerRef}
-          className={`flex overflow-x-auto ${SCROLL_SPACING_CLASSES} pb-4 scroll-smooth scrollbar-hide`}
+          className={`flex overflow-x-auto ${SCROLL_SPACING_CLASSES} pb-4 scroll-smooth scrollbar-hide px-4 sm:px-6 lg:px-8`} // Added padding here
         >
           {baseVideoSources.map((src, index) => (
             <div
@@ -79,7 +79,7 @@ export function HeroVideoSection() {
         <Button
           variant="outline"
           size="icon"
-          className="absolute right-0 sm:right-2 md:right-0 top-1/2 -translate-y-1/2 z-20 bg-background/80 hover:bg-background flex shadow-md"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-background/80 hover:bg-background flex shadow-md md:right-4" // Adjusted for edge placement
           onClick={() => scroll('right')}
           aria-label="Scroll right"
         >
