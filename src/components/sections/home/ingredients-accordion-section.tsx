@@ -17,7 +17,7 @@ const CustomAccordionTrigger = React.forwardRef<
     <AccordionPrimitive.Trigger
       ref={ref}
       className={cn(
-        "flex w-full flex-1 items-center justify-between py-4 font-medium transition-all hover:no-underline",
+        "flex w-full flex-1 items-center justify-between py-4 font-medium transition-all hover:no-underline text-left",
         className
       )}
       {...props}
@@ -32,22 +32,32 @@ CustomAccordionTrigger.displayName = "CustomAccordionTrigger";
 
 const accordionData = [
   {
-    id: 'research',
-    title: 'Research',
-    description: 'We meticulously analyze cutting-edge scientific studies and clinical trials to ensure every ingredient is chosen for its proven efficacy and safety. Our commitment is to formulas that deliver real, measurable results based on solid research.',
+    id: 'biotin-rosemary',
+    title: 'Biotin & Rosemary',
+    description: 'Support & revitalize hair health',
   },
   {
-    id: 'data-support',
-    title: 'Data Support & Substantiation',
-    description: 'Pursue ingredients that are backed by science. We review research materials and regularly meet with industry specialists to analyze experimental findings and clinical results of ingredient data before incorporating them into our products.',
+    id: 'redensyl-baicapil',
+    title: 'Redensyl & Baicapil',
+    description: 'Stimulate & reactivate growth',
   },
   {
-    id: 'regulation',
-    title: 'Regulation',
-    description: 'Our products are formulated to meet or exceed all relevant regulatory standards. We prioritize safety, quality, and transparency, ensuring our customers can trust the integrity of every Lustrous Locks product.',
+    id: 'ashwagandha-zinc',
+    title: 'Ashwagandha & Zinc',
+    description: 'Fortify & strengthen hair',
+  },
+  {
+    id: 'sawpalmetto-lycopodium',
+    title: 'Saw Palmetto & Lycopodium',
+    description: 'Protect & prevent hair loss',
+  },
+  {
+    id: 'glycerin-arnica',
+    title: 'Glycerin & Arnica',
+    description: 'Hydrate & soothe the scalp',
   },
 ];
-const defaultOpenValue = 'data-support';
+const defaultOpenValue = 'biotin-rosemary'; // Make the first item open by default
 
 export function IngredientsAccordionSection() {
   const fadeIn = useFadeIn<HTMLDivElement>();
@@ -70,6 +80,7 @@ export function IngredientsAccordionSection() {
 
           {/* Right Column: Accordion */}
           <div className="pt-0 md:pt-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 font-headline text-primary">Key Ingredients</h2>
             <Accordion
               type="single"
               collapsible
@@ -80,7 +91,7 @@ export function IngredientsAccordionSection() {
               {accordionData.map((item) => (
                 <AccordionItem key={item.id} value={item.id} className="border-b border-primary/30 last:border-b-0">
                   <CustomAccordionTrigger isOpen={activeValue === item.id}>
-                    <span className="text-2xl font-medium text-primary font-headline text-left">{item.title}</span>
+                    <span className="text-xl md:text-2xl font-medium text-primary font-headline">{item.title}</span>
                   </CustomAccordionTrigger>
                   <AccordionContent className="pt-2 pb-4">
                     <p className="text-foreground/80 text-sm leading-relaxed">{item.description}</p>
