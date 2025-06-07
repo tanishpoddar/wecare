@@ -26,12 +26,11 @@ export function HeroVideoSection() {
 
   return (
     <section ref={fadeIn.ref} className={`py-8 md:py-12 bg-background overflow-hidden ${fadeIn.className}`}>
-      {/* Heading removed */}
-      <div className="flex overflow-x-auto space-x-3 md:space-x-4 px-4 pb-4 scrollbar-hide">
+      <div className="flex overflow-x-auto space-x-2 md:space-x-3 px-4 pb-4 scrollbar-hide">
         {videoSources.map((src, index) => (
           <div
             key={index}
-            className="flex-shrink-0 w-[calc(50vw-1.5rem)] sm:w-64 md:w-72 lg:w-80 aspect-[9/16] rounded-lg overflow-hidden shadow-lg"
+            className="flex-shrink-0 w-[calc(45vw-1rem)] sm:w-48 md:w-56 lg:w-64 aspect-[9/16] rounded-lg overflow-hidden shadow-lg"
           >
             <video
               className="w-full h-full object-cover"
@@ -48,3 +47,4 @@ export function HeroVideoSection() {
     </section>
   );
 }
+
