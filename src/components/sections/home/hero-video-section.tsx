@@ -6,15 +6,16 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useFadeIn } from "@/hooks/use-fade-in";
 
-// Base video sources and hints
+// Updated to use local video file names
 const baseVideoSources = [
-  "https://videos.pexels.com/video-files/4689206/4689206-sd_540_960_30fps.mp4", // Woman applying cream
-  "https://videos.pexels.com/video-files/8071326/8071326-sd_540_960_25fps.mp4", // Skincare routine
-  "https://videos.pexels.com/video-files/7579909/7579909-sd_540_960_25fps.mp4", // Woman with flowing hair
-  "https://videos.pexels.com/video-files/5719827/5719827-sd_540_960_25fps.mp4", // Applying makeup
-  "https://videos.pexels.com/video-files/8131991/8131991-sd_540_960_25fps.mp4", // Hair product application
+  "/assets/videos/topvideo1.mp4",
+  "/assets/videos/topvideo2.mp4",
+  "/assets/videos/topvideo3.mp4",
+  "/assets/videos/topvideo4.mp4",
+  "/assets/videos/topvideo5.mp4",
 ];
 
+// Corresponding AI hints, ensure this array length matches baseVideoSources if used
 const baseVideoDataAiHints = [
   "skincare application model",
   "face care routine",
@@ -23,8 +24,8 @@ const baseVideoDataAiHints = [
   "hair serum model",
 ];
 
-const CARD_WIDTH_CLASSES = "w-64 sm:w-72 md:w-80"; // Kept the larger card sizes
-const SCROLL_SPACING_CLASSES = "space-x-4 md:space-x-6"; // Kept the larger spacing
+const CARD_WIDTH_CLASSES = "w-64 sm:w-72 md:w-80"; 
+const SCROLL_SPACING_CLASSES = "space-x-4 md:space-x-6"; 
 const SCROLL_AMOUNT_PX = 320 + 24; // Approximate width of md card (320px) + md gap (24px)
 
 export function HeroVideoSection() {
@@ -42,12 +43,12 @@ export function HeroVideoSection() {
 
   return (
     <section ref={fadeIn.ref} className={`py-8 md:py-12 bg-background ${fadeIn.className}`}>
-      <div className="relative"> {/* Removed container mx-auto px-4 */}
+      <div className="relative">
         
         <Button
           variant="outline"
           size="icon"
-          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-background/80 hover:bg-background flex shadow-md md:left-4" // Adjusted for edge placement
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-background/80 hover:bg-background flex shadow-md md:left-4"
           onClick={() => scroll('left')}
           aria-label="Scroll left"
         >
@@ -56,7 +57,7 @@ export function HeroVideoSection() {
         
         <div 
           ref={scrollContainerRef}
-          className={`flex overflow-x-auto ${SCROLL_SPACING_CLASSES} pb-4 scroll-smooth scrollbar-hide px-4 sm:px-6 lg:px-8`} // Added padding here
+          className={`flex overflow-x-auto ${SCROLL_SPACING_CLASSES} pb-4 scroll-smooth scrollbar-hide px-4 sm:px-6 lg:px-8`}
         >
           {baseVideoSources.map((src, index) => (
             <div
@@ -65,7 +66,7 @@ export function HeroVideoSection() {
             >
               <video
                 className="w-full h-full object-cover"
-                src={src}
+                src={src} // Use the local path
                 autoPlay
                 loop
                 muted
@@ -79,7 +80,7 @@ export function HeroVideoSection() {
         <Button
           variant="outline"
           size="icon"
-          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-background/80 hover:bg-background flex shadow-md md:right-4" // Adjusted for edge placement
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-background/80 hover:bg-background flex shadow-md md:right-4"
           onClick={() => scroll('right')}
           aria-label="Scroll right"
         >

@@ -24,20 +24,20 @@ interface CarouselItemDef {
 
 const baseCarouselItems: CarouselItemDef[] = [
   {
-    id: 'serum-image',
+    id: 'midimage1', // Updated ID
     type: 'image',
     content: {
-      src: 'https://placehold.co/400x500.png',
-      alt: 'Lustrous Locks Hair Serum Bottle',
-      dataAiHint: 'serum bottle beauty',
+      src: '/assets/images/midimage1.png', // Updated src
+      alt: 'Lustrous Locks Hair Serum Feature', // Generic alt
+      dataAiHint: 'serum feature product', // Generic hint
     },
   },
   {
-    id: 'serum-video-1',
+    id: 'midvideo2', // Updated ID
     type: 'video',
     content: {
-      src: 'https://videos.pexels.com/video-files/7697121/7697121-sd_540_960_25fps.mp4',
-      dataAiHint: 'woman beautiful hair',
+      src: '/assets/videos/midimage2.mp4', // Updated src
+      dataAiHint: 'hair demonstration video', // Generic hint
     },
   },
   {
@@ -77,19 +77,19 @@ const baseCarouselItems: CarouselItemDef[] = [
     },
   },
   {
-    id: 'serum-video-2',
+    id: 'midvideo3', // Updated ID
     type: 'video',
     content: {
-      src: 'https://videos.pexels.com/video-files/8131991/8131991-sd_540_960_25fps.mp4',
-      dataAiHint: 'hair product application',
+      src: '/assets/videos/midimage3.mp4', // Updated src
+      dataAiHint: 'product in use lifestyle', // Generic hint
     },
   },
 ];
 
 const CARD_WIDTH = 300;
-const CARD_GAP = 24; // Tailwind space-x-6 is 1.5rem = 24px
+const CARD_GAP = 24; 
 const ITEMS_TO_SCROLL_BY_BUTTON = 1; 
-const REPETITIONS = 6; // Increase repetitions for a more "endless" feel
+const REPETITIONS = 6; 
 
 const carouselItemsForDisplay = Array(REPETITIONS)
   .fill(null)
@@ -113,9 +113,6 @@ export function ProductShowcaseCarousel() {
 
   const handleDotClick = (dotIndex: number) => {
     if (scrollContainerRef.current) {
-      // Calculate the scroll position to bring the Nth unique item (first occurrence) to the start.
-      // The `px-4 sm:px-6 lg:px-8` on scrollContainerRef means we don't need to account for it here for item alignment,
-      // as scrollLeft is relative to the scroll container's content.
       const targetScrollLeft = dotIndex * (CARD_WIDTH + CARD_GAP);
       scrollContainerRef.current.scrollTo({
         left: targetScrollLeft,
@@ -160,11 +157,11 @@ export function ProductShowcaseCarousel() {
 
   return (
     <section ref={fadeIn.ref} className={`py-12 md:py-16 bg-secondary ${fadeIn.className}`}>
-      <div className="w-full"> {/* Changed from container mx-auto px-4 to w-full */}
+      <div className="w-full">
         <div className="relative">
           <div 
             ref={scrollContainerRef} 
-            className="flex overflow-x-auto space-x-6 pb-6 scrollbar-hide px-4 sm:px-6 lg:px-8" // Added px for start/end padding
+            className="flex overflow-x-auto space-x-6 pb-6 scrollbar-hide px-4 sm:px-6 lg:px-8"
           >
             {carouselItemsForDisplay.map((item, index) => (
               <div key={`${item.id}-rep-${index}`} className="flex-shrink-0 w-[300px] h-[450px]">
@@ -237,7 +234,6 @@ export function ProductShowcaseCarousel() {
         </div>
       </div>
       
-      {/* Pagination Dots - Wrapped in a container to keep them centered */}
       <div className="container mx-auto px-4">
         <div className="flex justify-center space-x-2 mt-8">
           {baseCarouselItems.map((_, index) => (
