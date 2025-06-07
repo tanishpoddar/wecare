@@ -35,7 +35,7 @@ export function HeroVideoSection() {
         {displayVideoSources.map((src, index) => (
           <div
             key={`hero-video-${index}`} // Unique key for each repeated item
-            className="flex-shrink-0 w-[calc(40vw-0.5rem)] sm:w-40 md:w-48 lg:w-56 aspect-[9/16] rounded-lg overflow-hidden shadow-lg"
+            className="flex-shrink-0 w-[calc(20vw-0.25rem)] sm:w-20 md:w-24 lg:w-28 aspect-[9/16] rounded-lg overflow-hidden shadow-lg"
           >
             <video
               className="w-full h-full object-cover"
