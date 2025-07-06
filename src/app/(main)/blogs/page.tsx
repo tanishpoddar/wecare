@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { BlogSearch } from '@/components/sections/blogs/blog-search';
 import { BlogGrid } from '@/components/sections/blogs/blog-grid';
 import type { ContentDiscoveryOutput } from '@/ai/flows/content-discovery';
+import { Button } from '@/components/ui/button';
 import { useFadeIn } from '@/hooks/use-fade-in';
 
 export default function BlogsPage() {
