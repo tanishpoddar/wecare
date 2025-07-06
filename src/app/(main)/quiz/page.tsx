@@ -75,7 +75,7 @@ export default function QuizPage() {
             <CardDescription>Based on your answers, we have a personalized recommendation for you.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <p className="text-lg">We recommend our <strong>Lustrous Locks Growth Serum</strong>!</p>
+            <p className="text-lg">We recommend our <strong>wecare Growth Serum</strong>!</p>
             <div className="w-full h-40 bg-gray-200 rounded-md flex items-center justify-center">
               <img src="https://placehold.co/300x200.png" alt="Recommended Product" className="max-h-full max-w-full object-contain" data-ai-hint="serum bottle"/>
             </div>
@@ -98,7 +98,7 @@ export default function QuizPage() {
         <CardHeader className="text-center">
           <CardTitle className="text-3xl md:text-4xl font-bold font-headline text-primary">Hair Care Quiz</CardTitle>
           <CardDescription className="text-lg text-muted-foreground">
-            Answer a few simple questions to find the perfect Lustrous Locks solution for you.
+            Answer a few simple questions to find the perfect wecare solution for you.
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-8">

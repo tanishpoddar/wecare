@@ -1,5 +1,6 @@
 'use client';
 
+import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { StarRating } from '@/components/common/star-rating';
@@ -14,8 +15,8 @@ import {
 } from "@/components/ui/accordion"
 
 const product = {
-  id: 'lustrous-locks-serum',
-  name: 'Lustrous Locks Hair Growth Serum',
+  id: 'wecare-serum',
+  name: 'wecare Hair Growth Serum',
   price: '$49.99',
   images: [
     { id: 1, src: 'https://placehold.co/600x800.png', alt: 'Serum Bottle Front', dataAiHint: 'serum bottle primary' },
@@ -25,7 +26,7 @@ const product = {
   ],
   amazonLink: '#', // Placeholder Amazon link
   amazonReviews: { stars: 4.8, count: 1250 },
-  description: "Unlock the secret to healthier, fuller hair with Lustrous Locks Growth Serum. Our expertly formulated serum combines the best of nature and science to nourish your scalp, strengthen follicles, and promote visible hair growth. Lightweight, non-greasy, and suitable for all hair types.",
+  description: "Unlock the secret to healthier, fuller hair with wecare Growth Serum. Our expertly formulated serum combines the best of nature and science to nourish your scalp, strengthen follicles, and promote visible hair growth. Lightweight, non-greasy, and suitable for all hair types.",
   keyBenefits: [
     'Promotes visible hair growth and thickness',
     'Reduces hair thinning and loss',

@@ -42,7 +42,7 @@ export function HowToUseSection() {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 font-headline text-primary">Simple Steps to Luscious Hair</h2>
         <p className="text-center text-muted-foreground mb-10 max-w-xl mx-auto">
-          Integrating Lustrous Locks into your routine is easy. Follow these simple steps for optimal results.
+          Integrating wecare into your routine is easy. Follow these simple steps for optimal results.
         </p>
         <div className="space-y-12">
           {steps.map((step, index) => (

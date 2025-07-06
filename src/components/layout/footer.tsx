@@ -74,8 +74,8 @@ export function Footer() {
           </div>
         </div>
         <div className="border-t border-border pt-8 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} Lustrous Locks. All rights reserved.</p>
-          <p>Contact: support@lustrouslocks.com | +1 (555) 123-4567</p>
+          <p>&copy; {new Date().getFullYear()} wecare. All rights reserved.</p>
+          <p>Contact: support@wecare.com | +1 (555) 123-4567</p>
         </div>
       </div>
     </footer>

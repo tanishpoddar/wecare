@@ -6,8 +6,8 @@ import { Toaster } from "@/components/ui/toaster";
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 
 export const metadata: Metadata = {
-  title: 'Lustrous Locks',
-  description: 'Premium Hair Care Serum for Lustrous Locks',
+  title: 'wecare',
+  description: 'Premium Hair Care Serum for wecare',
 };
 
 export default function RootLayout({

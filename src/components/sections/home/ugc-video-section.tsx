@@ -23,7 +23,7 @@ export function UgcVideoSection() {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 font-headline">Loved by Our Community</h2>
         <p className="text-center text-muted-foreground mb-10 max-w-xl mx-auto">
-          See how Lustrous Locks is transforming hair routines and boosting confidence.
+          See how wecare is transforming hair routines and boosting confidence.
         </p>
       </div>
       {/* Simplified scrolling container for UGC, true continuous loop is complex without a library */}

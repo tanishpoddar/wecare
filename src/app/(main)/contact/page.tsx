@@ -91,7 +91,7 @@ export default function ContactPage() {
               <Mail className="w-6 h-6 text-accent shrink-0 mt-1" />
               <div>
                 <h3 className="font-semibold text-foreground">Email Us</h3>
-                <a href="mailto:support@lustrouslocks.com" className="hover:text-accent">support@lustrouslocks.com</a>
+                <a href="mailto:support@wecare.com" className="hover:text-accent">support@wecare.com</a>
               </div>
             </div>
             <div className="flex items-start gap-4">

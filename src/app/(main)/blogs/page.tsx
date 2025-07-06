@@ -30,7 +30,7 @@ export default function BlogsPage() {
   return (
     <div ref={fadeIn.ref} className={`container mx-auto px-4 py-12 md:py-16 ${fadeIn.className}`}>
       <header className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold mb-4 font-headline text-primary">Lustrous Locks Blog</h1>
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 font-headline text-primary">wecare Blog</h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Discover expert tips, ingredient spotlights, and the science behind beautiful, healthy hair.
           Use our AI-powered search to find articles from across the web.

@@ -11,7 +11,7 @@ const storyItems = [
     id: 1,
     image: 'https://placehold.co/800x600.png',
     title: 'Our Humble Beginnings',
-    text: 'Lustrous Locks was born from a personal journey to find effective, natural hair care solutions. Frustrated by products filled with harsh chemicals, our founders embarked on a mission to create something truly different.',
+    text: 'wecare was born from a personal journey to find effective, natural hair care solutions. Frustrated by products filled with harsh chemicals, our founders embarked on a mission to create something truly different.',
     dataAiHint: 'nature landscape serene'
   },
   {
@@ -50,7 +50,7 @@ export function InteractiveStoryImages() {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 font-headline">Our Journey</h2>
         <p className="text-center text-muted-foreground mb-10 max-w-xl mx-auto">
-          Discover the passion, research, and dedication that goes into every bottle of Lustrous Locks serum.
+          Discover the passion, research, and dedication that goes into every bottle of wecare serum.
         </p>
         <div className="space-y-8">
           {storyItems.map((item) => (

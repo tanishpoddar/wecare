@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage() {
       <div className="prose lg:prose-xl max-w-none mx-auto text-foreground/80">
         <h2>1. Introduction</h2>
         <p>
-          Welcome to Lustrous Locks ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice, or our practices with regards to your personal information, please contact us at privacy@lustrouslocks.com.
+          Welcome to wecare ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. If you have any questions or concerns about this privacy notice, or our practices with regards to your personal information, please contact us at privacy@wecare.com.
         </p>
 
         <h2>2. Information We Collect</h2>
@@ -66,10 +66,10 @@ export default function PrivacyPolicyPage() {
 
         <h2>9. How Can You Contact Us About This Notice?</h2>
         <p>
-          If you have questions or comments about this notice, you may email us at privacy@lustrouslocks.com or by post to:
+          If you have questions or comments about this notice, you may email us at privacy@wecare.com or by post to:
         </p>
         <p>
-          Lustrous Locks<br />
+          wecare<br />
           Attn: Privacy Officer<br />
           123 Lustrous Lane<br />
           Beauty City, BC 54321

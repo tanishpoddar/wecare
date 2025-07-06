@@ -9,7 +9,7 @@ import { useFadeIn } from '@/hooks/use-fade-in';
 
 const faqItems = [
   {
-    question: "What hair types is Lustrous Locks serum suitable for?",
+    question: "What hair types is wecare serum suitable for?",
     answer: "Our serum is formulated to be effective for all hair types, including straight, wavy, curly, and coily hair. It addresses common concerns like thinning, dryness, and lack of growth across diverse hair textures."
   },
   {
@@ -18,7 +18,7 @@ const faqItems = [
   },
   {
     question: "Is the serum safe for color-treated or chemically processed hair?",
-    answer: "Yes, Lustrous Locks serum is gentle and safe for use on color-treated, permed, or otherwise chemically processed hair. Our clean ingredient formula is designed to nourish and support hair health without stripping color or causing further damage."
+    answer: "Yes, wecare serum is gentle and safe for use on color-treated, permed, or otherwise chemically processed hair. Our clean ingredient formula is designed to nourish and support hair health without stripping color or causing further damage."
   },
   {
     question: "How often should I use the serum?",
@@ -30,14 +30,14 @@ const faqItems = [
   },
   {
     question: "Are there any side effects?",
-    answer: "Lustrous Locks serum is made with clean, dermatologically tested ingredients and is hypoallergenic. However, as with any topical product, some individuals may experience sensitivity. We recommend performing a patch test on a small area of your scalp before full application if you have very sensitive skin. Discontinue use if irritation occurs."
+    answer: "wecare serum is made with clean, dermatologically tested ingredients and is hypoallergenic. However, as with any topical product, some individuals may experience sensitivity. We recommend performing a patch test on a small area of your scalp before full application if you have very sensitive skin. Discontinue use if irritation occurs."
   },
   {
     question: "Can I use other styling products with the serum?",
     answer: "Yes, you can use your usual styling products after applying the serum. Allow the serum to fully absorb into your scalp (usually 1-2 minutes) before applying other products."
   },
   {
-    question: "Is Lustrous Locks cruelty-free and vegan?",
+    question: "Is wecare cruelty-free and vegan?",
     answer: "Yes! We are proud to be a cruelty-free brand, and our serum formulation is 100% vegan."
   }
 ];
@@ -50,7 +50,7 @@ export default function FAQPage() {
       <header className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold mb-4 font-headline text-primary">Frequently Asked Questions</h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Find answers to common questions about Lustrous Locks hair serum and our brand.
+          Find answers to common questions about wecare hair serum and our brand.
         </p>
       </header>
       

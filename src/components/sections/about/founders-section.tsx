@@ -9,7 +9,7 @@ const founders = [
     name: 'Dr. Evelyn Reed',
     title: 'Co-Founder & Chief Scientist',
     image: 'https://placehold.co/400x400.png',
-    bio: "Dr. Reed is a renowned trichologist with over 15 years of experience in hair and scalp research. Her passion for natural remedies and scientific innovation led her to co-found Lustrous Locks, aiming to create effective solutions that honor both nature and efficacy.",
+    bio: "Dr. Reed is a renowned trichologist with over 15 years of experience in hair and scalp research. Her passion for natural remedies and scientific innovation led her to co-found wecare, aiming to create effective solutions that honor both nature and efficacy.",
     dataAiHint: 'professional woman scientist'
   },
   {
@@ -17,7 +17,7 @@ const founders = [
     name: 'Marcus Chen',
     title: 'Co-Founder & CEO',
     image: 'https://placehold.co/400x400.png',
-    bio: "With a background in sustainable business and a personal quest for better hair care, Marcus teamed up with Dr. Reed to bring Lustrous Locks to life. He champions the brand's commitment to quality, transparency, and customer satisfaction.",
+    bio: "With a background in sustainable business and a personal quest for better hair care, Marcus teamed up with Dr. Reed to bring wecare to life. He champions the brand's commitment to quality, transparency, and customer satisfaction.",
     dataAiHint: 'professional man ceo'
   },
 ];
@@ -30,7 +30,7 @@ export function FoundersSection() {
       <div className="container mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-4 font-headline text-primary">Meet Our Founders</h2>
         <p className="text-center text-muted-foreground mb-10 max-w-xl mx-auto">
-          The visionaries behind Lustrous Locks, dedicated to revolutionizing hair wellness.
+          The visionaries behind wecare, dedicated to revolutionizing hair wellness.
         </p>
         <div className="grid md:grid-cols-2 gap-12">
           {founders.map((founder) => (
