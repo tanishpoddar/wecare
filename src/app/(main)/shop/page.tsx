@@ -1,3 +1,4 @@
+import React from 'react';
 import { HeroVideoSection } from '@/components/sections/home/hero-video-section'; // Re-using
 // import { ProductShowcaseCarousel } from '@/components/sections/home/product-showcase-carousel'; // Optional: If multiple products, show this first
 import { ShopProductDetailSection } from '@/components/sections/shop/shop-product-detail-section'; // Main product focus
