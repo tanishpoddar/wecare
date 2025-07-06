@@ -1,3 +1,4 @@
+import React from 'react';
 import { InteractiveStoryImages } from '@/components/sections/about/interactive-story-images';
 import { FoundersSection } from '@/components/sections/about/founders-section';
 

@@ -1,5 +1,4 @@
-
-
+import React from 'react';
 import { HeroVideoSection } from '@/components/sections/home/hero-video-section';
 import { ProductShowcaseCarousel } from '@/components/sections/home/product-showcase-carousel';
 import { ConsumerStudyResultsBanner } from '@/components/sections/home/consumer-study-results-banner';
