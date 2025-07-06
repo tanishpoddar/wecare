@@ -16,7 +16,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable}`}>
+    <html lang="en" className={`${inter.variable}`} suppressHydrationWarning>
       <head>
         {/* Google Fonts link for Inter is handled by next/font. Additional fonts can be added here if necessary. */}
       </head>
